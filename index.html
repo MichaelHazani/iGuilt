@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Hazani Health Tracker</title>
+    <title>Hazani Health Tracker</title>
 </head>
+
 <body>
 
+<div id= "foodapp"></div>
+  <ul id="food-list"></ul>
+<input type="text" id="new-food" placeholder="What type of food?" />
+<select id="servings">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+</select>
+<button id="add-food">Add</button>
+<ul id="food-list"></ul>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
-<script src="./js/models/model.js"></script>
-<script src="./js/collections/collection.js"></script>
-<script src="./js/views/views.js"></script>
 
+
+    <!-- load dependencies: template, jQuery, Underscore, Backbone, Firebase, BackboneFire, local Backbone files -->
+    <script type="text/template" id="item-template"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
+    <script src="./js/models/model.js"></script>
+    <script src="./js/collections/collection.js"></script>
+    <script src="./js/views/views.js"></script>
 </body>
+
 </html>
