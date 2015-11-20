@@ -1,7 +1,6 @@
 //individual item view
 var FoodItemView = Backbone.View.extend({
 
-
     tagName: "li",
 
     initialize: function() {
@@ -11,7 +10,7 @@ var FoodItemView = Backbone.View.extend({
     },
 
     render: function() {
-        this.$el.html(this.model.toJSON());
+        this.$el.html(this.model.get('servings')+" " + this.model.get('food')+ ": " + this.model.get('calories') + " calories");
 
         return this;
     },
@@ -22,7 +21,8 @@ var FoodItemView = Backbone.View.extend({
 var AppView = Backbone.View.extend({
     el: $('#foodapp'),
     events: {
-        "click #add-food": "createFood"
+        "click button#add-food": "createFood",
+        "click button#reset": "reset"
     },
     initialize: function() {
         this.list = $("#food-list");
@@ -31,10 +31,12 @@ var AppView = Backbone.View.extend({
 
         //listen to changes in order to change in realtime
         this.listenTo(this.collection, 'add', this.addOne);
+        this.listenTo(this.collection, 'sync', this.render)
+    this.render();
     },
-    addOne: function(food) {
+    addOne: function(FoodItem) {
         var view = new FoodItemView({
-            model: food
+            model: FoodItem
         });
         this.list.append(view.render().el);
     },
@@ -42,17 +44,30 @@ var AppView = Backbone.View.extend({
         if (!this.input.val()) {
             return;
         }
-        console.log("hi");
+
 
         //create a new location in Firebase and save model data
         //also trigger the listenTo method to create a new foodItemView
 
         this.collection.create({
             food: this.input.val(),
-            servings: $("#servings").val()
-            // calories: ((Math.random() * (1000 - 1) + 1) * $("#servings").val())
+            servings: $("#servings").val(),
+            calories: ((Math.random() * (1000 - 1) + 1) * $("#servings").val())
+
         });
         this.input.val('');
+    },
+
+        reset: function() {
+        this.collection.reset();
+
+    },
+
+    render: function(){
+        this.collection.each(function(foodItem){
+            console.log(foodItem);
+
+        });
     }
 });
 
