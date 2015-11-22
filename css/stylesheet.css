@@ -1,0 +1,28 @@
+body {
+font-family: 'Exo 2', sans-serif;
+}
+.bootstrap-select.btn-group .dropdown-menu form-control li > a {
+    text-align: center;
+}
+
+.row {
+  margin-top: 12px;
+}
+
+.buttons {
+  margin-top: 50px;
+}
+
+.datepicker, .servingsdiv {
+  max-width: 100px;
+}
+
+
+#new-food {
+  max-width: 80%;
+}
+
+li {
+border-style: inset;
+text-align: center;
+}
