@@ -112,7 +112,7 @@ $("#gldate").val(FORMATTEDDATE);
             if (this.input.val()) {
 
                 var query = (this.input.val()).replace(" ", "%20");
-                $.get("https://api.nutritionix.com/v1_1/search/" + query + "?cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=d1dedcac&appKey=8159f50c871452df6092206f6fdf2d9d",
+                $.get("https://api.nutritionix.com/v1_1/search/" + query + "?cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=45f49ec8&appKey=a9b61e8c715b3753b743ca2bbd19d509",
                     function(data) {
                         $("#autocomplete").html("");
                         if (data.length != 0) {
@@ -121,7 +121,7 @@ $("#gldate").val(FORMATTEDDATE);
                             }
                             $("#autocomplete").click(function(e) {
                                 $("#new-food").val(e.target.innerText);
-                                $.get("https://api.nutritionix.com/v1_1/item?id=" + data.hits[e.target.id]["_id"] + "&appId=d1dedcac&appKey=8159f50c871452df6092206f6fdf2d9d",
+                                $.get("https://api.nutritionix.com/v1_1/item?id=" + data.hits[e.target.id]["_id"] + "&appId=45f49ec8&appKey=a9b61e8c715b3753b743ca2bbd19d509",
                                     function(itemData) {
                                         var totalCal = (itemData["nf_calories"]);
                                         $("#calories").val(totalCal);
