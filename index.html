@@ -3,25 +3,30 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css">
     <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Exo+2:400,200,800' rel='stylesheet' type='text/css'>
+    <link href="./css/glDatePicker.default.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Exo+2:400,200,800, 100 italic' rel='stylesheet' type='text/css'>
     <link href="./css/stylesheet.css" rel="stylesheet" type="text/css">
     <title>CalCounter</title>
 </head>
 
 <body>
     <div class="container" id="foodapp">
-
+        <div class="row hero text-center">
+            <div class="credit">Michael Hazani Presents</div>
+            <div class="title">CalCounter</div>
+            <div class="subtitle">why do important things
+                <br> when you can count calories instead?</div>
+        </div>
         <div class="row">
             <div class="col-xs-12">
-                <input class="datepicker form-control center-block text-center input-small" id="glDate" placeholder="date" />
+                <input type="text" class="form-control center-block" id="new-food" placeholder="What type of food?" />
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <select id="servings" class="servingsdiv center-block form-control text-center input-small" placeholder="servings">
-                    <option value="" disabled selected>Servings</option>
+                <select id="servings" class="servings center-block form-control input-small" placeholder="how many servings?">
+                    <option value="" disabled selected>How many servings?</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -37,37 +42,40 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <input type="text" class="text-center center-block form-control" id="new-food" placeholder="What type of food?" />
+                <ul id="autocomplete" class="list-inline"></ul>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <input type="number" class="form-control text-center input-small" id="calories" placeholder="calories" />
+                <input type="number" class="form-control text-center center-block input-small" id="calories" placeholder="cal. per serving" />
             </div>
         </div>
         <div class="row buttons">
             <div class="col-xs-12 text-center center-block">
-                <button id="add-food">Add</button>
-                <button id="reset">Reset DB!</button>
+                <button id="add-food" class="btn btn-primary btn-lg">Add</button>
+                <button id="reset" class="btn btn-primary btn-lg">Reset</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <input class="gldate center-block text-center" id="gldate" type="text" />
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <ul id="food-list"></ul>
-                <ul id="autocomplete"></ul>
             </div>
         </div>
     </div>
-    <!-- load dependencies: template, jQuery, Underscore, glDate, Backbone, Firebase, BackboneFire, Bootstrap, local Backbone files -->
+    <!-- load dependencies: template, jQuery, Underscore, Backbone, Firebase, BackboneFire, Bootstrap, glDate, local Backbone files -->
     <script type="text/template" id="item-template"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    <script src="./js/libs/glDatePicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="./js/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./js/libs/glDatePicker.min.js"></script>
     <script src="./js/models/model.js"></script>
     <script src="./js/collections/collection.js"></script>
     <script src="./js/views/views.js"></script>
