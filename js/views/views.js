@@ -29,13 +29,10 @@ var FoodItemView = Backbone.View.extend({
     render: function() {
 
         if (this.model.get('date') == $("#gldate").val()) {
-            this.$el.html(this.model.get('date') + " " + this.model.get('servings') + " servings of " + this.model.get('food') + ": " + this.model.get('calories') + " calories" + "<button id='destroy' class='libut pull-right'>Delete</button><br>");
+            this.$el.html(this.model.get('servings') + " servings of " + this.model.get('food') + ": " + this.model.get('calories') + " calories" + "<button id='destroy' class='libut pull-right'>Delete</button><br>");
         }
         return this;
     },
-    test: function() {
-        console.log("hi")
-    }
 });
 
 
@@ -47,16 +44,15 @@ var AppView = Backbone.View.extend({
         "click button#add-food": "createFood",
         "click button#reset": "reset",
         "keyup #new-food": "autoComplete",
-        "click button#testtwo": "filter"
     },
     initialize: function() {
         var that = this;
         this.list = $("#food-list");
         this.input = $("#new-food");
-        this.servings = $("#servings")
+        this.servings = $("#servings");
+        this.calories = $("#calories");
         this.glDate = $("#gldate");
         this.input.focus();
-        this.testButton = $("#test13");
 
         //listen to changes in order to change in realtime
         this.listenTo(this.collection, 'add', this.addOne);
@@ -99,6 +95,8 @@ var AppView = Backbone.View.extend({
 
         });
         this.input.val('');
+        this.servings.val(1);
+        this.calories.val('');
     },
 
     createOnEnter: function(e) {

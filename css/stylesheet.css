@@ -1,117 +1,129 @@
 @keyframes libuttrans {
-    from {background-color: #ff99cc;}
-    to {background-color: red;}
+    from {
+        background-color: #ff99cc;
+    }
+    to {
+        background-color: red;
+    }
 }
+
 @keyframes buttrans {
-    from {background-color: #6699ff;}
-    to {background-color: #1a66ff;}
+    from {
+        background-color: #6699ff;
+    }
+    to {
+        background-color: #1a66ff;
+    }
 }
 
 body {
-font-family: 'Exo 2', sans-serif;
-/*background: #ffcccc url("../assets/bg.png") no-repeat center;*/
+    font-family: 'Exo 2', sans-serif;
+    /*background: #ffcccc url("../assets/bg.png") no-repeat center;*/
 }
 
 .row {
-  margin-top: 12px;
+    margin-top: 10px;
 }
 
 .buttons {
-  margin-top: 2%;
+    margin-top: 2%;
 }
 
-
-#new-food, #autocomplete {
-  max-width: 60%;
+#new-food,
+#autocomplete {
+    max-width: 60%;
 }
-
+/*
 .gldate {
-  margin-top: 10%;
-}
+    margin-top: 5%;
+}*/
 
-#calories,  #servings, #gldate {
-  max-width: 165px;
-
+#calories,
+#servings,
+#gldate {
+    max-width: 165px;
+    cursor: pointer;
 }
 
 li {
-border-style: none;
-text-align: left;
-font-size: 13px;
-font-weight:100;
-margin: 0 auto;
-margin-top: 2%;
+    border-style: none;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 100;
+    margin: 0 auto;
+    margin-top: 2%;
 }
 
 li:hover {
-background-color:#e5f2ff;
+    background-color: #e5f2ff;
 }
 
 .credit {
-  font-weight: 100;
-  font-style: italic
-  float: left;
+    font-weight: 100;
+    font-style: italic float: left;
 }
 
 .title {
-  font-weight: 400;
-  font-size: 6em;
-  color: black;
+    font-weight: 400;
+    font-size: 6em;
+    color: black;
 }
 
 .subtitle {
-  font-weight: 100;
-  font-style: italic;
-  font-size: .5em;
+    font-weight: 100;
+    font-style: italic;
+    font-size: .5em;
+
 }
 
 .btn {
-  background-color: #6699ff;
+    background-color: #6699ff;
 }
 
 .btn:hover {
-  animation-name: buttrans;
-  animation-duration: 0.5s;
-   background-color: #1a66ff;
+    animation-name: buttrans;
+    animation-duration: 0.5s;
+    background-color: #1a66ff;
 }
 
-.libut {
-  background-color: #ff99cc;
-  max-height: 25px;
+.libut
+{
+    background-color: #ff99cc;
+    max-height: 25px;
 }
 
-
-.libut:hover {
-  animation-name: libuttrans;
-  animation-duration: 0.5s;
-  background-color:red;
+#reset {
+    background-color: #ff99cc;
 }
 
-#autocomplete, #food-list {
-list-style-type: none;
+.libut:hover,
+#reset:hover {
+    animation-name: libuttrans;
+    animation-duration: 0.5s;
+    background-color: red;
+}
+
+#autocomplete,
+#food-list {
+    list-style-type: none;
 }
 
 #autocomplete {
-  cursor: pointer;
-  position: absolute;
-  left:22%;
-  right:22%;
-  z-index: 1;
-  background-color: white;
-
-
+    cursor: pointer;
+    position: absolute;
+    left: 22%;
+    right: 22%;
+    z-index: 1;
+    background-color: white;
 }
 
-
-
 #food-list {
-  border-style: solid;
-  padding:2%;
-  padding-top: 0;
-  background-color:white;
+    border-style: solid;
+    padding: 2%;
+    padding-top: 0;
+    background-color: white;
 }
 
 #autocomplete:empty {
-display:none;
+    display: none;
 }
-
