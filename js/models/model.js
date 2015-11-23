@@ -1,3 +1,5 @@
+var app = app || {};
+
 var FoodItem = Backbone.Model.extend({
     defaults: {
         date: 0,

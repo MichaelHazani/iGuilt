@@ -1,6 +1,15 @@
+@keyframes libuttrans {
+    from {background-color: #ff99cc;}
+    to {background-color: red;}
+}
+@keyframes buttrans {
+    from {background-color: #6699ff;}
+    to {background-color: #1a66ff;}
+}
+
 body {
 font-family: 'Exo 2', sans-serif;
-background: #ffcccc url("../assets/bg.png") no-repeat center;
+/*background: #ffcccc url("../assets/bg.png") no-repeat center;*/
 }
 
 .row {
@@ -12,7 +21,7 @@ background: #ffcccc url("../assets/bg.png") no-repeat center;
 }
 
 
-#new-food {
+#new-food, #autocomplete {
   max-width: 60%;
 }
 
@@ -21,7 +30,7 @@ background: #ffcccc url("../assets/bg.png") no-repeat center;
 }
 
 #calories,  #servings, #gldate {
-  max-width: 20%;
+  max-width: 165px;
 
 }
 
@@ -61,6 +70,8 @@ background-color:#e5f2ff;
 }
 
 .btn:hover {
+  animation-name: buttrans;
+  animation-duration: 0.5s;
    background-color: #1a66ff;
 }
 
@@ -69,8 +80,11 @@ background-color:#e5f2ff;
   max-height: 25px;
 }
 
+
 .libut:hover {
-  background-color: #ff1a8c;
+  animation-name: libuttrans;
+  animation-duration: 0.5s;
+  background-color:red;
 }
 
 #autocomplete, #food-list {
@@ -79,7 +93,12 @@ list-style-type: none;
 
 #autocomplete {
   cursor: pointer;
-  position: fixed;
+  position: absolute;
+  left:22%;
+  right:22%;
+  z-index: 1;
+  background-color: white;
+
 
 }
 

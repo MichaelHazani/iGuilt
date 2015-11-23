@@ -1,1 +1,1 @@
-var FoodCollection=Backbone.Firebase.Collection.extend({model:FoodItem,url:"https://glaring-fire-8181.firebaseio.com/"});
+var app=app||{},FoodCollection=Backbone.Firebase.Collection.extend({model:FoodItem,url:"https://glaring-fire-8181.firebaseio.com/",byDay:function(e){return this.filter(function(e){return e.get("date")==FORMATTEDDATE})}});

@@ -1,3 +1,5 @@
+var app = app || {};
+
 //global date and formatted currentDate objects
 var DATE = new Date();
 var FORMATTEDDATE = (DATE.getMonth() + 1 + "/" + DATE.getDate() + "/" + DATE.getFullYear());
