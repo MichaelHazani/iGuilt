@@ -14,6 +14,15 @@
     to {
         background-color: #1a66ff;
     }
+  }
+
+@keyframes resettrans {
+    from {
+        background-color: black;
+    }
+    to {
+        background-color: red;
+    }
 }
 
 body {
@@ -33,10 +42,10 @@ body {
 #autocomplete {
     max-width: 60%;
 }
-/*
-.gldate {
-    margin-top: 5%;
-}*/
+
+.dateline {
+    margin-top: 10%;
+}
 
 #calories,
 #servings,
@@ -44,6 +53,8 @@ body {
     max-width: 165px;
     cursor: pointer;
 }
+
+
 
 li {
     border-style: none;
@@ -93,12 +104,18 @@ li:hover {
 }
 
 #reset {
-    background-color: #ff99cc;
+    background-color: black;
+    margin-top: 2%;
 }
 
-.libut:hover,
-#reset:hover {
+.libut:hover {
     animation-name: libuttrans;
+    animation-duration: 0.5s;
+    background-color: red;
+}
+
+#reset:hover {
+    animation-name: resettrans;
     animation-duration: 0.5s;
     background-color: red;
 }
@@ -127,3 +144,7 @@ li:hover {
 #autocomplete:empty {
     display: none;
 }
+#food-list:empty {
+  border-style:none;
+}
+

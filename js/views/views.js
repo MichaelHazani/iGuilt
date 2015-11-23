@@ -18,18 +18,27 @@ var FoodItemView = Backbone.View.extend({
     initialize: function() {
         this.listenTo(this.model, 'change', this.render);
         this.listenTo(this.model, 'destroy', this.remove);
-
     },
 
     destroy: function() {
         this.model.destroy();
         $("#new-food").focus();
+        this.totalCal();
     },
 
+    totalCal: function() {
+            var calTotal = 0;
+            $('.DOMcals').each(function() {
+                calTotal += parseFloat($(this).text());
+            })
+                $(".calTotal").text(calTotal);
+            },
     render: function() {
 
         if (this.model.get('date') == $("#gldate").val()) {
-            this.$el.html(this.model.get('servings') + " servings of " + this.model.get('food') + ": " + this.model.get('calories') + " calories" + "<button id='destroy' class='libut pull-right'>Delete</button><br>");
+            this.$el.html(this.model.get('servings') + " servings of " + this.model.get('food') +
+                ": <span class='DOMcals'>" + this.model.get('calories') + "</span> calories" +
+                "<button id='destroy' class='libut pull-right'>Delete</button><br>");
         }
         return this;
     },
@@ -55,9 +64,9 @@ var AppView = Backbone.View.extend({
         this.input.focus();
 
         //listen to changes in order to change in realtime
+        this.listenTo(this.collection, 'sync', this.totalCal);
         this.listenTo(this.collection, 'add', this.addOne);
-
-
+        this.listenTo(this.model, 'destroy', this.totalCal);
 
         $("#gldate").glDatePicker({
             onClick: (function(el, cell, date, data) {
@@ -67,12 +76,14 @@ var AppView = Backbone.View.extend({
             }),
         });
         $("#gldate").val(FORMATTEDDATE);
+
     },
     addOne: function(FoodItem) {
         var view = new FoodItemView({
             model: FoodItem
         });
         this.list.append(view.render().el);
+        this.totalCal();
     },
 
     addAll: function() {
@@ -91,11 +102,11 @@ var AppView = Backbone.View.extend({
             date: this.glDate.val(),
             food: this.input.val(),
             servings: $("#servings").val(),
-            calories: ($("#calories").val() * $("#servings").val())
+            calories: (Math.round($("#calories").val()) * $("#servings").val())
 
         });
         this.input.val('');
-        this.servings.val(1);
+        this.servings.val('');
         this.calories.val('');
     },
 
@@ -114,7 +125,7 @@ var AppView = Backbone.View.extend({
             if (this.input.val()) {
 
                 var query = (this.input.val()).replace(" ", "%20");
-                $.get("https://api.nutritionix.com/v1_1/search/" + query + "?cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=45f49ec8&appKey=a9b61e8c715b3753b743ca2bbd19d509",
+                $.get("https://api.nutritionix.com/v1_1/search/" + query + "?cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=d1dedcac&appKey=8159f50c871452df6092206f6fdf2d9d",
                     function(data) {
                         $("#autocomplete").html("");
                         if (data.length != 0) {
@@ -123,10 +134,10 @@ var AppView = Backbone.View.extend({
                             }
                             $("#autocomplete").click(function(e) {
                                 $("#new-food").val(e.target.innerText);
-                                $.get("https://api.nutritionix.com/v1_1/item?id=" + data.hits[e.target.id]["_id"] + "&appId=45f49ec8&appKey=a9b61e8c715b3753b743ca2bbd19d509",
+                                $.get("https://api.nutritionix.com/v1_1/item?id=" + data.hits[e.target.id]["_id"] + "&appId=d1dedcac&appKey=8159f50c871452df6092206f6fdf2d9d",
                                     function(itemData) {
-                                        var totalCal = (itemData["nf_calories"]);
-                                        $("#calories").val(totalCal);
+                                        var itemCals = (itemData["nf_calories"]);
+                                        $("#calories").val(itemCals);
                                     });
                                 $("#autocomplete").html("");
                             });
@@ -141,13 +152,14 @@ var AppView = Backbone.View.extend({
     },
 
     reset: function() {
+        if (confirm("are you SURE you want to reset the database?")) {
         this.collection.reset();
         this.list.html("");
         this.input.focus();
+    } else {return;}
     },
 
     rerender: function(items) {
-        console.log("yo");
         this.list.html("");
         items.each(function(foodItem){
             var newView = new FoodItemView({
@@ -156,14 +168,22 @@ var AppView = Backbone.View.extend({
             });
             $("#food-list").append(newView.render().el);
         });
+        this.totalCal();
         return this;
     },
 
     filter: function(e){
         var displayDate = $("#gldate").val();
         this.rerender(this.collection.byDate(displayDate));
-    }
+    },
 
+    totalCal: function() {
+            var calTotal = 0;
+            $('.DOMcals').each(function() {
+                calTotal += parseFloat($(this).text());
+            })
+                $(".calTotal").text(calTotal);
+            }
 });
 
 //init App!
