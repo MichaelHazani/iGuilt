@@ -41,34 +41,36 @@ var FoodItemView = Backbone.View.extend({
 
 //global app view
 var AppView = Backbone.View.extend({
-
     el: $('#foodapp'),
-    collection: new FoodCollection(),
+    collection: foodCollection,
     events: {
         "click button#add-food": "createFood",
         "click button#reset": "reset",
         "keyup #new-food": "autoComplete",
+        "click button#testtwo": "filter"
     },
     initialize: function() {
         var that = this;
         this.list = $("#food-list");
         this.input = $("#new-food");
         this.servings = $("#servings")
-        this.glDate = $(".gldate");
+        this.glDate = $("#gldate");
         this.input.focus();
+        this.testButton = $("#test13");
 
         //listen to changes in order to change in realtime
         this.listenTo(this.collection, 'add', this.addOne);
 
-        $("#gldate").glDatePicker({
-        onClick: (function(el, cell, date, data) {
-            el.val(date.toLocaleDateString());
-        // $(window).remove(AppView);
-        //     // var app = new AppView();
-        }),
-});
-$("#gldate").val(FORMATTEDDATE);
 
+
+        $("#gldate").glDatePicker({
+            onClick: (function(el, cell, date, data) {
+                el.val(date.toLocaleDateString());
+                // console.log(date.toLocaleDateString());
+                that.filter();
+            }),
+        });
+        $("#gldate").val(FORMATTEDDATE);
     },
     addOne: function(FoodItem) {
         var view = new FoodItemView({
@@ -146,11 +148,24 @@ $("#gldate").val(FORMATTEDDATE);
         this.input.focus();
     },
 
-    render: function() {
-        this.collection.each(function(foodItem) {
-            foodItem.render();
+    rerender: function(items) {
+        console.log("yo");
+        this.list.html("");
+        items.each(function(foodItem){
+            var newView = new FoodItemView({
+                model: foodItem,
+                collection: this.collection
+            });
+            $("#food-list").append(newView.render().el);
         });
+        return this;
+    },
+
+    filter: function(e){
+        var displayDate = $("#gldate").val();
+        this.rerender(this.collection.byDate(displayDate));
     }
+
 });
 
 //init App!
