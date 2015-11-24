@@ -18,3 +18,5 @@ Built with [Sublime Text 3](http://www.sublimetext.com/3) and [Codekit 2.6.1](ht
 
 #### Installation:
 after cloning the repo, simply open index.html.
+
+(Or play with a [live demo](http://guilt.michaelhazani.com/)
