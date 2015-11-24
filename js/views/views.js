@@ -152,7 +152,7 @@ var AppView = Backbone.View.extend({
             if (this.input.val()) {
                 // format our input and send off an API request to the good folks at Nutritionix!
                 var query = (this.input.val()).replace(" ", "%20");
-                $.get("https://api.nutritionix.com/v1_1/search/" + query + "?cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=8b44227f&appKey=979a61790b4e55a8d4bc92c954038963",
+                $.get("https://api.nutritionix.com/v1_1/search/" + query + "?cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=d1dedcac&appKey=8159f50c871452df6092206f6fdf2d9d",
                     function(data) {
                         //on callback, init our autocomplete window
                         $("#autocomplete").html("");
@@ -167,7 +167,7 @@ var AppView = Backbone.View.extend({
                                 //fill the input field with that item's name
                                 $("#new-food").val(e.target.innerText);
                                 //and get its respective calories with another call using its unique Nutritionix item id
-                                $.get("https://api.nutritionix.com/v1_1/item?id=" + data.hits[e.target.id]._id + "&appId=8b44227f&appKey=979a61790b4e55a8d4bc92c954038963",
+                                $.get("https://api.nutritionix.com/v1_1/item?id=" + data.hits[e.target.id]._id + "&appId=d1dedcac&appKey=8159f50c871452df6092206f6fdf2d9d",
                                     function(itemData) {
                                         //put them in our readymade container
                                         var itemCals = (itemData.nf_calories);
