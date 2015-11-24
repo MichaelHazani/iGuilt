@@ -3,7 +3,7 @@
 
 ### By Michael Hazani
 
-![](https://raw.githubusercontent.com/MichaelHazani/udacity-p5-2/tree/master/assets/guilt.png "Guilt Screenshot")
+![](https://raw.githubusercontent.com/MichaelHazani/udacity-p5-2/master/assets/guilt.png "Guilt Screenshot")
 
 #### Dependencies:
 
