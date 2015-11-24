@@ -8,9 +8,9 @@
 #### Dependencies:
 
 * [Backbone](http://backbonejs.org)
-* [Firebase](https://www.firebase.com/) & [BackboneFire](https://www.firebase.com/docs/web/libraries/backbone/quickstart.html){:target="_blank"} (for back-end Firebase integration)
+* [Firebase](https://www.firebase.com/) & [BackboneFire](https://www.firebase.com/docs/web/libraries/backbone/quickstart.html) (for back-end Firebase integration)
 * [The Nutritionix API] (http://www.nutritionix.com/)
-* [Bootstrap](http://getbootstrap.com/){:target="_blank"}
+* [Bootstrap](http://getbootstrap.com/)
 * [glDatePicker] (http://glad.github.io/glDatePicker/)
 
 
