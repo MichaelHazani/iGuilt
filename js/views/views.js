@@ -34,7 +34,7 @@ var FoodItemView = Backbone.View.extend({
 
         //even though we have a dedicated filtering function (see collection.js),
         //I need this condition for the initial filtering of the items - only those with today's date.
-        if (this.model.get('date') == $(".gldate").val()) {
+        if (this.model.get('date') === $(".gldate").val()) {
             //I avoided underscore's template because, honestly, I had my hands full with Backbone.
             //this is NOT an easy project!;)
             //it seems really easy and I'll get around to it soon.
@@ -170,7 +170,7 @@ var AppView = Backbone.View.extend({
                                 $.get("https://api.nutritionix.com/v1_1/item?id=" + data.hits[e.target.id]._id + "&appId=8b44227f&appKey=979a61790b4e55a8d4bc92c954038963",
                                     function(itemData) {
                                         //put them in our readymade container
-                                        var itemCals = (itemData["nf_calories"]);
+                                        var itemCals = (itemData.nf_calories);
                                         $("#calories").val(itemCals);
                                         //on failure (damnit!)
                                     }).fail(function() {
