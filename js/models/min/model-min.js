@@ -1,1 +1,1 @@
-var app=app||{},FoodItem=Backbone.Model.extend({defaults:{date:0,food:"new food",servings:0,calories:0}});
+"use strict";var app=app||{},FoodItem=Backbone.Model.extend({defaults:{date:0,food:"new food",servings:0,calories:0}});

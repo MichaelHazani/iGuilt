@@ -7,87 +7,95 @@
     <link href="./css/glDatePicker.default.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Exo+2:400,200,800, 100 italic' rel='stylesheet' type='text/css'>
     <link href="./css/stylesheet.css" rel="stylesheet" type="text/css">
-    <title>CalCounter</title>
+    <title>Guilt - A Calorie Counter</title>
 </head>
 
 <body>
     <div class="container" id="foodapp">
-        <div class="row hero text-center">
+        <div class="row text-center">
             <div class="col-xs=12">
-                <div class="title">CalCounter</div>
+                <div class="title">Guilt</div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <input type="text" class="form-control center-block text-center" id="new-food" placeholder="What type of food?" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <ul id="autocomplete" class="center-block list-inline"></ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <select id="servings" class="servings center-block form-control input-small" placeholder="how many servings?">
-                    <option value="" disabled selected>How many servings?</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <input type="number" class="form-control text-center center-block input-small" id="calories" placeholder="cal. per serving" />
-            </div>
-        </div>
-        <div class="row buttons">
-            <div class="col-xs-12 text-center center-block">
-                <button id="add-food" class="btn btn-primary btn-lg">Add</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 center-block text-center dateline">
-                Food Log for:
-                <input class="gldate center-block text-center" id="gldate" type="text" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <ul id="food-list"></ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 text-right">
-                Total Calories:
-                <span class="calTotal">
-                </span>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 text-center center-block">
-                    <button id="reset" class="btn btn-primary">Reset Entire Database</button>
+            <div class="row text-center">
+                <div class="col-xs=12">
+                    <div class="subtitle">your friendly calorie counter</div>
                 </div>
             </div>
-            <!-- load dependencies: template, jQuery, Underscore, Backbone, Firebase, BackboneFire, Bootstrap, glDate, local Backbone files -->
-            <script type="text/template" id="item-template"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
-            <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
-            <script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
-            <script src="./js/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-            <script src="./js/libs/glDatePicker.min.js"></script>
-            <script src="./js/models/model.js"></script>
-            <script src="./js/collections/collection.js"></script>
-            <script src="./js/views/views.js"></script>
+            <div class="row">
+                <div class="col-xs-12">
+                    <!--                 food input field. On keyup, autocompletes from the Nutritionix Database -->
+                    <input type="text" class="form-control center-block text-center" id="new-food" placeholder="What type of food?" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul id="autocomplete" class="center-block list-inline"></ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <!--                 This input should be auto-filled from the Nutritionix API but can be modified by the user -->
+                    <input type="number" class="form-control text-center center-block input-small" id="calories" placeholder="calories per serving" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <select id="servings" class="servings center-block form-control input-small" placeholder="how many servings?">
+                        <option value="" disabled selected>How many servings?</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row buttons">
+                <div class="col-xs-12 text-center center-block">
+                    <button id="add-food" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 center-block text-center dateline">
+                    <!--                 The presentational element. Relies on the glDate Picker for a date getter/setter GUI. Date is an attribute in every food item. -->
+                    Food Log for:
+                    <input class="gldate center-block text-center" id="gldate" type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 center-block text-center">
+                    <!--                 This ul is AppView's DOM element; it appends li's to it. -->
+                    <ul id="food-list" class="center-block"></ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 text-center calorietotal">
+                    <!--                 Caloric sum for the day's foods -->
+                    Total for <span class="todaysDate"></span>:
+                    <span class="calTotal"></span> calories
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 text-center center-block">
+                        <!--                     this resets the DB. It works! Don't test it unless you're willing to reset the DB! -->
+                        <button id="reset" class="btn btn-primary">Reset Database</button>
+                    </div>
+                </div>
+                <!-- dependencies: jQuery, Underscore, Backbone, Firebase, BackboneFire, Bootstrap, glDatePicker, local Backbone files -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
+                <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+                <script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
+                <script src="./js/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+                <script src="./js/libs/glDatePicker.min.js"></script>
+                <script src="./js/models/model.js"></script>
+                <script src="./js/collections/collection.js"></script>
+                <script src="./js/views/views.js"></script>
 </body>
 
 </html>

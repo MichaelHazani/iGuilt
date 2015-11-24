@@ -1,1 +1,1 @@
-var app=app||{},FoodCollection=Backbone.Firebase.Collection.extend({model:FoodItem,url:"https://glaring-fire-8181.firebaseio.com/",byDate:function(o){return _(this.filter(function(e){return e.get("date")===o}))}}),foodCollection=new FoodCollection,thisCol=foodCollection.byDate("11/21/15");
+"use strict";var app=app||{},FoodCollection=Backbone.Firebase.Collection.extend({model:FoodItem,url:"https://glaring-fire-8181.firebaseio.com/",byDate:function(e){return _(this.filter(function(o){return o.get("date")===e}))}}),foodCollection=new FoodCollection;
