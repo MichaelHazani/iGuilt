@@ -9,24 +9,27 @@
 
 @keyframes buttrans {
     from {
-        background-color: #6699ff;
+        background-color: hsl(210, 20%, 50%);
     }
     to {
-        background-color: #1a66ff;
+        background-color: hsl(210, 70%, 20%);
     }
 }
 
 @keyframes resettrans {
     from {
-        background-color: black;
+        background-color: hsl(210, 20%, 50%);
     }
     to {
-        background-color: red;
+        background-color: hsl(210, 70%, 10%);
     }
 }
 
 body {
     font-family: 'Exo 2', sans-serif;
+    color: hsl(210, 20%, 50%);
+    text-transform: uppercase;
+    background-color: hsl(210, 100%, 97%);
 }
 
 .row {
@@ -37,34 +40,45 @@ body {
     margin-top: 2%;
 }
 
-#new-food,
-#autocomplete {
-    max-width: 50%;
-}
-
-.dateline {
-    margin-top: 4%;
-}
-
-#calories,
-#servings,
-#gldate {
-    max-width: 165px;
+#calories {
+    max-width: 240px;
     cursor: default;
 }
+
+#servings {
+    max-width: 145px;
+    margin-right: 50px;
+}
+#gldate,
+#new-food {
+    max-width: 510px;
+    cursor: default;
+}
+
+#gldate {
+    margin-top: 5%;
+    font-size:1.8em;
+}
+
+#food-list, #autocomplete {
+    max-width: 510px;
+}
+
 
 li {
     border-style: none;
     cursor: default;
     text-align: left;
+/*    float: left;*/
     font-size: 13px;
     font-weight: 100;
     margin: 0 auto;
     margin-top: 2%;
+/*    margin-bottom: 2%;*/
 }
 
 li:hover {
-    background-color: #e5f2ff;
+    background-color: hsl(210, 70%, 90%);;
 }
 
 #destroy {
@@ -88,28 +102,32 @@ li:hover > #destroy {
     font-style: italic float: left;
 }
 
+.addbtn {
+    margin-left:-8px;
+}
+
 .title {
     font-weight: 200;
-    font-size: 6em;
-    color: black;
+    font-size: 8em;
+    text-transform: none;
+    color: hsl(210, 35%, 50%);
 }
 
 .subtitle {
     font-weight: 100;
-    font-style: italic;
     font-size: 1em;
     margin-top: -20px;
     margin-bottom: 20px;
 }
 
 .btn {
-    background-color: #6699ff;
+    background-color: hsl(210, 20%, 50%);
 }
 
 .btn:hover {
     animation-name: buttrans;
     animation-duration: 0.5s;
-    background-color: #1a66ff;
+    background-color: hsl(210, 70%, 20%);
 }
 
 .libut {
@@ -118,14 +136,14 @@ li:hover > #destroy {
 }
 
 #reset {
-    background-color: black;
+    background-color: hsl(210, 20%, 50%);
     margin-top: 2%;
 }
 
 #reset:hover {
     animation-name: resettrans;
     animation-duration: 0.5s;
-    background-color: red;
+    background-color: hsl(210, 70%, 10%);
 }
 
 #autocomplete,
@@ -135,23 +153,39 @@ li:hover > #destroy {
 
 #autocomplete {
     cursor: default;
-    position: absolute;
-    left: 22%;
-    right: 22%;
+    position: relative;
     z-index: 1;
     background-color: white;
+/*    display: inline-block;*/
+/*    margin-left:25%;
+    float: left;*/
 }
 
 #food-list {
     border-style: solid;
-    padding: 2%;
-    padding-top: 0;
+    padding: 0.2%;
+    padding-top: 0.2%;
     background-color: white;
-    max-width: 80%
+}
+
+#food-list li {
+    font-size:0.9em;
+    margin-bottom: 20px;
+}
+
+#gldate {
+/*    max-width: 140px;*/
+    border: none;
+    background: transparent;
+    color: hsl(210, 85%, 30%);
 }
 
 #autocomplete:empty {
     display: none;
+}
+
+#food-list:empty {
+    height:50px;
 }
 
 @media screen and (max-width: 480px) {

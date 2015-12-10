@@ -14,7 +14,7 @@
     <div class="container" id="foodapp">
         <div class="row text-center">
             <div class="col-xs=12">
-                <div class="title">Guilt</div>
+                <div class="title">iGUILT</div>
             </div>
             <div class="row text-center">
                 <div class="col-xs=12">
@@ -24,24 +24,22 @@
             <div class="row">
                 <div class="col-xs-12">
                     <!--                 food input field. On keyup, autocompletes from the Nutritionix Database -->
-                    <input type="text" class="form-control center-block text-center" id="new-food" placeholder="What type of food?" />
+                    <input type="text" class="form-control center-block" id="new-food" placeholder="TYPE OF FOOD" />
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <ul id="autocomplete" class="center-block list-inline"></ul>
+                    <ul id="autocomplete" class="center-block"></ul>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-6">
                     <!--                 This input should be auto-filled from the Nutritionix API but can be modified by the user -->
-                    <input type="number" class="form-control text-center center-block input-small" id="calories" placeholder="calories per serving" />
+                    <input type="number" class="form-control input-small pull-right" id="calories" placeholder="CALORIES PER SERVING" />
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <select id="servings" class="servings center-block form-control input-small" placeholder="how many servings?">
-                        <option value="" disabled selected>How many servings?</option>
+                <div class="col-xs-6">
+                    <select id="servings" class="servings form-control input-small pull-left" placeholder="HOW MANY SERVINGS?">
+                        <option value="" disabled selected>SERVINGS</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -53,18 +51,13 @@
                         <option value="9">9</option>
                         <option value="10">10</option>
                     </select>
+
+                    <button id="add-food" class="btn btn-primary addbtn pull-left">ADD</button>
                 </div>
-            </div>
-            <div class="row buttons">
-                <div class="col-xs-12 text-center center-block">
-                    <button id="add-food" class="btn btn-primary">Add</button>
-                </div>
-            </div>
             <div class="row">
-                <div class="col-xs-12 center-block text-center dateline">
+                <div class="col-xs-12 dateline">
                     <!--                 The presentational element. Relies on the glDate Picker for a date getter/setter GUI. Date is an attribute in every food item. -->
-                    Food Log for:
-                    <input class="gldate center-block text-center" id="gldate" type="text" />
+                    <input class="gldate text-center" id="gldate" type="text" />
                 </div>
             </div>
             <div class="row">
@@ -82,7 +75,7 @@
                 <div class="row">
                     <div class="col-xs-12 text-center center-block">
                         <!--                     this resets the DB. It works! Don't test it unless you're willing to reset the DB! -->
-                        <button id="reset" class="btn btn-primary">Reset Database</button>
+                        <button id="reset" class="btn btn-primary">RESET DATABASE</button>
                     </div>
                 </div>
                 <!-- dependencies: jQuery, Underscore, Backbone, Firebase, BackboneFire, Bootstrap, glDatePicker, local Backbone files -->

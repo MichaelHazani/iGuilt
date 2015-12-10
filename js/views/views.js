@@ -45,7 +45,7 @@ var FoodItemView = Backbone.View.extend({
                 this.model.get('servings') + " servings of " + this.model.get('food') +
                 //put the cals in a container of their own for formatting purposes
                 //and isolate the actual cal number div for later sum calculations
-                "<span class='calContainer  pull-right'><span class='DOMcals'>" +
+                "<br><span class='calContainer  pull-right'><span class='DOMcals'>" +
                 //now get them calories!
                 this.model.get('calories') + "</span> calories  " + "</span><br>");
         }
@@ -160,7 +160,7 @@ var AppView = Backbone.View.extend({
                         if (data.length !== 0) {
                             //append the item name to our autocomplete window, in a list
                             for (var i = 0; i < data.hits.length; i++) {
-                                $("#autocomplete").append("<li id=" + i + ">" + (data.hits[i].fields.item_name) + ", by " + (data.hits[i].fields.brand_name) + "</li><br>");
+                                $("#autocomplete").append("<li class='autoCompLi' id=" + i + ">" + (data.hits[i].fields.item_name) + ", by " + (data.hits[i].fields.brand_name) + "</li><br>");
                             }
                             //and when that item is clicked
                             $("#autocomplete").click(function(e) {
