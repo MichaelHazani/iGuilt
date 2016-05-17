@@ -1,4 +1,3 @@
-# FEND Project 5.2
 ## Guilt: A Health Tracker Web App
 
 ### By Michael Hazani
